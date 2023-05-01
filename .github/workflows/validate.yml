@@ -18,12 +18,10 @@ jobs:
           rustup toolchain install stable --profile minimal
 
       - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: zeroidc
-          args: --manifest-path zeroid/Cargo.toml
 
       - run: |
           cargo check
+        working-directory: zeroidc
 
 
     # - name: Install Rust
