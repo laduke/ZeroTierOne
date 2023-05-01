@@ -21,8 +21,11 @@ jobs:
         with:
           workspaces: zeroidc
 
-      - run: |
-          cargo check
+        -name: Check
+        with:
+          command: check
+          args: --manifest-path zeroidc/Cargo.toml
+
 
     # - name: Install Rust
     #   uses: actions-rs/toolchain@v1
