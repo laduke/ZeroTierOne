@@ -18,6 +18,8 @@ jobs:
           rustup toolchain install stable --profile minimal
 
       - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: zeroidc -> zeroidc/target
 
       - run: |
           cargo check
