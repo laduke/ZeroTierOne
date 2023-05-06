@@ -342,7 +342,6 @@ bool MacEthernetTap::removeIp(const InetAddress &ip)
 void MacEthernetTap::scanIps() {
 	struct ifaddrs *ifa = (struct ifaddrs *)0;
 	std::vector<InetAddress> r;
-	// fprintf(stderr, "scanIps %s\n", _dev.c_str());
 
 
 	if (!getifaddrs(&ifa)) {
