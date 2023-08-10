@@ -10,6 +10,7 @@ jobs:
             build: make
           - os: macos-latest
             build: make
+    runs-on: ${{ matrix.os }}
     steps:
       - name: hello
         run: echo ${{ matrix.os }} ${{ matrix.build }}
