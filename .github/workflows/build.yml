@@ -11,13 +11,13 @@ jobs:
             build: make
           - os: macos-latest
             build: make
-          - os: macos-latest
+          - os: windows-latest
             build: msbuild windows\ZeroTierOne.sln /m /p:Configuration=Release  /property:Platform=x64 /t:ZeroTierOne
     runs-on: ${{ matrix.os }}
     name: Build on ${{ matrix.os }} ${{matrix.trace}}
     steps:
       - name: build
-        run: echo ${{ matrix.os }} ${{ matrix.build }} ZT_SSO_SUPPORTED=${{ matrix.sso }} ZT_TRACE=${{ matrix.trace }}
+        run: echo ${{ matrix.os }} ${{ matrix.build }} ZT_TRACE=${{ matrix.trace }}
   # build_ubuntu:
   #   runs-on: ubuntu-latest
   #   steps:
