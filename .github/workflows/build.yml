@@ -4,15 +4,17 @@ jobs:
   example_matrix:
     strategy:
       matrix:
-        sso: [1,0]
         trace: [1,0]
+        os: [ macos-latest, windows-latest, ubuntu-latest ]
         include:
           - os: ubuntu-latest
             build: make
           - os: macos-latest
             build: make
+          - os: macos-latest
+            build: msbuild windows\ZeroTierOne.sln /m /p:Configuration=Release  /property:Platform=x64 /t:ZeroTierOne
     runs-on: ${{ matrix.os }}
-    name: Hello ${{ matrix.os }} ${{matrix.sso}} ${{matrix.trace}}
+    name: Build on ${{ matrix.os }} ${{matrix.trace}}
     steps:
       - name: build
         run: echo ${{ matrix.os }} ${{ matrix.build }} ZT_SSO_SUPPORTED=${{ matrix.sso }} ZT_TRACE=${{ matrix.trace }}
