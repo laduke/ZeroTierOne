@@ -24,6 +24,8 @@ jobs:
       with:
         key: ${{ runner.os }}-cargo-${{ hashFiles('zeroidc//Cargo.lock') }}
         shared-key: ${{ runner.os }}-cargo-
+        continue-on-error: false
+        cache-targets: "true"
         workspaces: |
           zeroidc/
 
@@ -53,6 +55,7 @@ jobs:
     - name: Set up cargo cache
       uses: Swatinem/rust-cache@v2
       continue-on-error: false
+      cache-targets: "true"
       with:
         key: ${{ runner.os }}-cargo-${{ hashFiles('zeroidc//Cargo.lock') }}
         shared-key: ${{ runner.os }}-cargo-
@@ -85,6 +88,7 @@ jobs:
     - name: Set up cargo cache
       uses: Swatinem/rust-cache@v2
       continue-on-error: false
+      cache-targets: "true"
       with:
         key: ${{ runner.os }}-cargo-${{ hashFiles('zeroidc//Cargo.lock') }}
         shared-key: ${{ runner.os }}-cargo-
