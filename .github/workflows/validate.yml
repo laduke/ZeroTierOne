@@ -36,7 +36,7 @@ jobs:
       env:
         CC: 'gcc'
         CXX: 'g++'
-        BRANCH: ${{  github.ref_name }}
+        BRANCH: ${{ github.ref_name }}
       run: |
         sudo apt install -y valgrind xmlstarlet gcovr iperf3 tree
         make one ZT_COVERAGE=1 ZT_TRACE=1
