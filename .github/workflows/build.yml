@@ -63,7 +63,7 @@ jobs:
           zeroidc/
 
     - name: make
-      run: make
+      run: make ARCH_FLAGS="-arch x86_64"
     - name: selftest
       run: |
         make selftest
