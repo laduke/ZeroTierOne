@@ -24,7 +24,6 @@ jobs:
       with:
         key: ${{ runner.os }}-cargo-${{ hashFiles('zeroidc//Cargo.lock') }}
         shared-key: ${{ runner.os }}-cargo-
-        continue-on-error: false
         cache-targets: "true"
         workspaces: |
           zeroidc/
@@ -63,7 +62,7 @@ jobs:
           zeroidc/
 
     - name: make
-      run: make ARCH_FLAGS="-arch x86_64"
+      run: make
     - name: selftest
       run: |
         make selftest
